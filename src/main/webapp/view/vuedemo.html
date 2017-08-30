@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="static/plugin/vue/vue.js"></script>
+</head>
+<body>
+    <div id="demo">
+        {{message}}
+    </div>
+    <script>
+        let data = {
+            message: "Hello , Vue !"
+        }
+
+        var vm = new Vue({
+            el:"#demo",
+            data:data
+        });
+    </script>
+</body>
+</html>
