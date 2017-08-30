@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <!-- 事务管理器 -->
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!-- 数据源 -->
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    <!-- 通知 -->
+    <tx:advice id="transactionAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <!-- 传播行为 -->
+            <tx:method name="add*" propagation="REQUIRED"  rollback-for="java.lang.Exception"/>
+            <tx:method name="insert*" propagation="REQUIRED"  rollback-for="java.lang.Exception"/>
+            <tx:method name="save*" propagation="REQUIRED"  rollback-for="java.lang.Exception"/>
+            <tx:method name="update*" propagation="REQUIRED"  rollback-for="java.lang.Exception"/>
+            <tx:method name="modify*" propagation="REQUIRED"  rollback-for="java.lang.Exception"/>
+            <tx:method name="edit*" propagation="REQUIRED"  rollback-for="java.lang.Exception"/>
+            <tx:method name="del*" propagation="REQUIRED"  rollback-for="java.lang.Exception"/>
+            <tx:method name="remove*" propagation="REQUIRED"  rollback-for="java.lang.Exception"/>
+            <tx:method name="repair" propagation="REQUIRED"  rollback-for="java.lang.Exception"/>
+            <tx:method name="delAndRepair" propagation="REQUIRED"  rollback-for="java.lang.Exception"/>
+            <tx:method name="register*" propagation="REQUIRED"  rollback-for="java.lang.Exception"/>
+            <tx:method name="move" propagation="REQUIRED"  rollback-for="java.lang.Exception"/>
+            <tx:method name="get*" read-only="true" propagation="SUPPORTS" />
+            <tx:method name="find*" read-only="true" propagation="SUPPORTS" />
+            <tx:method name="load*" read-only="true" propagation="SUPPORTS" />
+            <tx:method name="search*" read-only="true" propagation="SUPPORTS" />
+            <tx:method name="select*" read-only="true" propagation="SUPPORTS"/>
+            <tx:method name="datagrid*" propagation="SUPPORTS" />
+        </tx:attributes>
+    </tx:advice>
+    <!-- 切面 -->
+    <!-- service..*.*(..)) 扫描包括子包 -->
+    <!-- service.*.*(..)) 扫描不包括子包 -->
+    <aop:config>
+        <aop:advisor advice-ref="transactionAdvice" pointcut="execution(* com.aos.oigo.service..*.*(..))" />
+    </aop:config>
+
+    <bean id="druid-stat-interceptor" class="com.alibaba.druid.support.spring.stat.DruidStatInterceptor"></bean>
+
+    <aop:config>
+        <aop:pointcut id="druid-stat-pointcut" expression="execution(* com.aos.oigo.service..*.*(..))" />
+        <aop:advisor advice-ref="druid-stat-interceptor" pointcut-ref="druid-stat-pointcut" order="1"/>
+    </aop:config>
+</beans>
