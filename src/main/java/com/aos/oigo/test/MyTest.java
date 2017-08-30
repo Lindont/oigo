@@ -88,5 +88,6 @@ public class MyTest
         }
         System.out.println(maps.containsKey("key1"));
         System.out.println(maps.containsValue("list2"));
+        System.out.println("哈哈");
     }
 }
