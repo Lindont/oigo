@@ -16,7 +16,7 @@ public class User implements Serializable
     private Date birthday;//生日
     private int phone;//手机号
     private String email;//邮箱
-    private int locked;//
+    private int locked;//账号是否被锁定
 
     public int getId()
     {
