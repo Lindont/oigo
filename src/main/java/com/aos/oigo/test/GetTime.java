@@ -29,4 +29,20 @@ public class GetTime
         String suffix = fmt.format(new Date());
         System.out.println(suffix);
     }
+
+    @Test
+    public void getTime2()
+    {
+        Date date = new Date();
+        DateFormat format = new SimpleDateFormat("MM月dd日 HH点业绩更新：（当日0点至HH点）");
+        String time = format.format(date);
+        System.out.println(time);
+    }
+
+    @Test
+    public void getTime3()
+    {
+        Date date = new Date();
+        System.out.println(date.getHours());;
+    }
 }
