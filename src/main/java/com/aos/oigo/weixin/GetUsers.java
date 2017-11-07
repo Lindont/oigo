@@ -19,7 +19,7 @@ public class GetUsers
     @Test
     public void getUsers()
     {
-        String AccessToken = "20oZPpwnwwWtasORXIc8A_s6MRDzWZNRiM2o-zdWhttA4lfd0K7WhXDgS7LEfWJsfMMad6eXN-qoOm9YNyQZMrm8WgFZt-2ah_Ppmb5vdPZmVrxE-QqP1AQF6HWdahaZVck3XtnLk-TMP1sy6PGuBG8uaaec5d2RAWZIYj9NO2dNb5F3MhffXzkr3X3F4PH5SVy0oyBtQDFHZGiGQXSJag";
+        String AccessToken = "xp6LRRGt7ldHn5TnI3mM-nmkW7D_vhkOIhWwSrQth_B3ZXIRY_RE_vsrYziAcvQAN4b3PnsOzksqJeCkMyBvZRxSywLBkHT4c5ZUdWV_tWxEOnIAAOf-PdYRb6WvWwj_Sey2CwD2iezAtfVBvyYX2GHVeKQnzTeH4XodURvUeFBdHCutdWlO61TmBJ-ippQ9w5EcmOFiesjaqu4JaL7XPQ";
         String url = "https://qyapi.weixin.qq.com/cgi-bin/user/simplelist?access_token="+AccessToken+"&department_id="+1+"&fetch_child="+1;
 
         Map<String ,String> mapHeaders = new HashMap<String,String>();

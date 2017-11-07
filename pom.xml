@@ -42,6 +42,7 @@
         <joda.time.version>2.9.9</joda.time.version>
         <httpclient.version>4.5.3</httpclient.version>
         <quartz.version>2.3.0</quartz.version>
+        <quartz-jobs.version>2.3.0</quartz-jobs.version>
         <mybatis.paginator.version>1.2.17</mybatis.paginator.version>
         <pagehelper.version>5.0.3</pagehelper.version>
         <jedis.version>2.9.0</jedis.version>
@@ -435,6 +436,11 @@
                 <artifactId>quartz</artifactId>
                 <version>${quartz.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.quartz-scheduler</groupId>
+                <artifactId>quartz-jobs</artifactId>
+                <version>${quartz-jobs.version}</version>
+            </dependency>
 
 
             <!-- Redis客户端 -->
@@ -489,6 +495,12 @@
                 <version>${freemarker.version}</version>
             </dependency>
 
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>2.4.2</version>
+            </dependency>
 
 
         </dependencies>

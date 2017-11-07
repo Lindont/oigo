@@ -34,11 +34,9 @@ public class WeixinSendMessage
 
         JSONObject text = JSON.parseObject(getMessage());
         JSONObject jsonObject = new JSONObject();
-        //jsonObject.put("touser","huanghaoxin");
-        //jsonObject.put("toparty","1000024");
         jsonObject.put("totag","900001");
-        jsonObject.put("msgtype", WeixinMessageType.TEXT);
-        jsonObject.put("agentid", WeixinConfig.OIGO_AGENTID);
+        jsonObject.put("msgtype",WeixinMessageType.TEXT);
+        jsonObject.put("agentid",WeixinConfig.OIGO_AGENTID);
         jsonObject.put("text",text);
         jsonObject.put("safe",0);
 

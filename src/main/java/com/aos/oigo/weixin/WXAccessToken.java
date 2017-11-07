@@ -4,8 +4,10 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.aos.oigo.config.WeixinConfig;
 import com.aos.oigo.utils.HttpUtils;
+import com.aos.oigo.utils.WeiXinUtil;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,5 +37,23 @@ public class WXAccessToken
         System.out.println(access_token);
         String expires_in = jo.getString("expires_in");
         System.out.println(expires_in);
+    }
+
+
+
+    @Test
+    public void getShotUrl()
+    {
+        String url = "https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid="+WeixinConfig.CORPID+"&corpsecret="+WeixinConfig.SECRET;
+
+        String resStr = "";
+        try
+        {
+            resStr = WeiXinUtil.httpsConn(url, "GET", null);
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        System.out.println(resStr);
     }
 }

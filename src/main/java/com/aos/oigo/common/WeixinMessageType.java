@@ -8,19 +8,19 @@ package com.aos.oigo.common;
 public class WeixinMessageType
 {
     //文本消息
-    public static final String TEXT = "text";
+    public final static String TEXT = "text";
     //图片消息
-    public static final String IMAGE = "image";
+    public final static String IMAGE = "image";
     //语音消息
-    public static final String VOICE = "voice";
+    public final static String VOICE = "voice";
     //视频消息
-    public static final String VIDEO = "video";
+    public final static String VIDEO = "video";
     //文件消息
-    public static final String FILE = "file";
+    public final static String FILE = "file";
     //文本卡片消息
-    public static final String TEXTCARD = "textcard";
+    public final static String TEXTCARD = "textcard";
     //图文消息(news)
-    public static final String NEWS = "news";
+    public final static String NEWS = "news";
     //图文消息(mpnews)
-    public static final String MPNEWS ="mpnews";
+    public final static String MPNEWS ="mpnews";
 }
