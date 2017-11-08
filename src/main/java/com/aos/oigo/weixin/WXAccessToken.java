@@ -16,17 +16,15 @@ import java.util.Map;
  * @Description :
  * @Date : Create in 2017-10-11
  */
-public class WXAccessToken
-{
+public class WXAccessToken {
     @Test
-    public void getToken()
-    {
-        String url = "https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid="+WeixinConfig.CORPID+"&corpsecret="+WeixinConfig.SECRET;
+    public void getToken() {
+        String url = "https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=" + WeixinConfig.CORPID + "&corpsecret=" + WeixinConfig.SECRET;
 
-        Map<String ,String> mapHeaders = new HashMap<String,String>();
-        mapHeaders.put("Content-Type","application/x-www-form-urlencoded;charset=utf-8");
+        Map<String, String> mapHeaders = new HashMap<String, String>();
+        mapHeaders.put("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
 
-        String str = HttpUtils.getResultEntity(url,mapHeaders,null,HttpUtils.GET);
+        String str = HttpUtils.getResultEntity(url, mapHeaders, null, HttpUtils.GET);
 
         JSONObject jo = JSON.parseObject(str);
         String errcode = jo.getString("errcode");
@@ -40,18 +38,14 @@ public class WXAccessToken
     }
 
 
-
     @Test
-    public void getShotUrl()
-    {
-        String url = "https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid="+WeixinConfig.CORPID+"&corpsecret="+WeixinConfig.SECRET;
+    public void getShotUrl() {
+        String url = "https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=" + WeixinConfig.CORPID + "&corpsecret=" + WeixinConfig.SECRET;
 
         String resStr = "";
-        try
-        {
+        try {
             resStr = WeiXinUtil.httpsConn(url, "GET", null);
-        } catch (IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         System.out.println(resStr);
