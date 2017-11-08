@@ -1,5 +1,6 @@
 package com.aos.oigo.controller.user;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
  * @Description :
  * @Date : Create in 2017-11-08
  */
+@Controller
 public class GetContextPath {
     @RequestMapping("contextpath")
     public void getContextPath(HttpServletRequest request, HttpServletResponse response) {

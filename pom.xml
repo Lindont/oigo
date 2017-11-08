@@ -19,7 +19,7 @@
         <skipTests>true</skipTests>
 
         <!-- Spring版本号 -->
-        <spring.version>4.3.5.RELEASE</spring.version>
+        <spring.version>4.3.9.RELEASE</spring.version>
         <!-- Mybatis版本号 -->
         <mybatis.version>3.4.4</mybatis.version>
         <!-- Mybatis/Spring -->
