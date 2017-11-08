@@ -8,13 +8,11 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("user")
-public class LoginController
-{
+public class LoginController {
     @RequestMapping("setsession")
     public void login(@RequestParam("username") String username,
                       @RequestParam("password") String password,
-                      HttpSession session)
-    {
+                      HttpSession session) {
         session.setAttribute("username", username);
         System.out.println(password);
     }
