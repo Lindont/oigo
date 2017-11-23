@@ -15,25 +15,23 @@ import java.util.Map;
  * @Description :
  * @Date : Create in 2017-10-11
  */
-public class WeixinTag
-{
+public class WeixinTag {
     /**
      * 创建标签
      */
     @Test
-    public void createTag()
-    {
+    public void createTag() {
         String AccessToken = "sDI6WCfucy20OE8TwhubgJMFKLwgYMrPGYSjDKbzaQqqMBdvOjFt1gvyxvJ1lPei-AoEZggapvYyry6ktsZu88FE0DEBM9gVi0o-efFwCL_nPyopChtexeWnplIzvqcZRWF78u11YsM97L6cgAuRZ0HoRpkP3uMECTq21EgwNXhygjYaO6hEadHpQjqgYPtG9zZmbqAFGQS4v9dOds2EOw";
-        String url = "https://qyapi.weixin.qq.com/cgi-bin/tag/create?access_token="+AccessToken;
+        String url = "https://qyapi.weixin.qq.com/cgi-bin/tag/create?access_token=" + AccessToken;
 
-        Map<String ,String> mapHeaders = new HashMap<String,String>();
-        mapHeaders.put("Content-Type","application/x-www-form-urlencoded;charset=utf-8");
+        Map<String, String> mapHeaders = new HashMap<String, String>();
+        mapHeaders.put("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
 
-        JSONObject jsonObject=new JSONObject();
-        jsonObject.put("tagname","test");
-        jsonObject.put("tagid","900000");
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("tagname", "test");
+        jsonObject.put("tagid", "900000");
 
-        String str = HttpUtils.getResultEntity(url,mapHeaders,jsonObject,HttpUtils.POST);
+        String str = HttpUtils.getResultEntity(url, mapHeaders, jsonObject, HttpUtils.POST);
 
         JSONObject jo = JSON.parseObject(str);
         String errcode = jo.getString("errcode");
@@ -48,19 +46,18 @@ public class WeixinTag
      * 修改标签名字
      */
     @Test
-    public void changeTagName()
-    {
+    public void changeTagName() {
         String AccessToken = "zYxC0XgjZBFCQdPQ3Aj8UWEu_heC4Lkk0bhc6u6nyVJBDrIIsOilAnUAd7iMwPQqa3J0SLEX8pROPKMI9KRaKg_6_Hn7XxTO3YDGfRwFRZyDX2lTKahKrUHcGLxdeF5K5hM2T8BJPKLX_C5QztaKolVkIcrEaWM1RFU-XHNVrY_jmdm-sKSDflOi8O6WWADjo1abMCkEqeg4ATiJOmjMCA";
-        String url = "https://qyapi.weixin.qq.com/cgi-bin/tag/update?access_token="+AccessToken;
+        String url = "https://qyapi.weixin.qq.com/cgi-bin/tag/update?access_token=" + AccessToken;
 
-        Map<String ,String> mapHeaders = new HashMap<String,String>();
-        mapHeaders.put("Content-Type","application/x-www-form-urlencoded;charset=utf-8");
+        Map<String, String> mapHeaders = new HashMap<String, String>();
+        mapHeaders.put("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
 
-        JSONObject jsonObject=new JSONObject();
-        jsonObject.put("tagid","900001");
-        jsonObject.put("tagname","Daily");
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("tagid", "900001");
+        jsonObject.put("tagname", "Daily");
 
-        String str = HttpUtils.getResultEntity(url,mapHeaders,jsonObject,HttpUtils.POST);
+        String str = HttpUtils.getResultEntity(url, mapHeaders, jsonObject, HttpUtils.POST);
 
         JSONObject jo = JSON.parseObject(str);
         String errcode = jo.getString("errcode");
@@ -73,25 +70,24 @@ public class WeixinTag
      * 增加标签成员
      */
     @Test
-    public void addTagUsers()
-    {
-        String AccessToken = "ailA4Nv3WBFs10Wn3A0exvBk1osDOG-5epIKzyU1n7mbY1xeBjnOuruygUxrGcbg9kGDkLjIrJRjOsocPAhDqLSaSH07aSXlgv87sKglYs8Dppx4nqY4liRpSEfwk-f-Em4VhJuCpJcPgGxKi1epAY2jE6QxIk56ZtzjvdbsMzUDzcGI9Eysnj2qiFSkgtAoM3mwYTsa7WcyGAieui9nnQ";
-        String url = "https://qyapi.weixin.qq.com/cgi-bin/tag/addtagusers?access_token="+AccessToken;
+    public void addTagUsers() {
+        String AccessToken = "ObbREVrlnt01hQiafxHlvEIqFgqIzVG2MIwocjx0Fw8IcoOBhNfoIHDEoruxw7wL_DAYFH9Ev-vBp36ktfuwQxYkwZ0zZGs4DK3BZ4YgdX6vA1GOjKHKmTR7jLRNcdfMWMwbMRA2G8r7g2ewBi1iZKgHDFbVo3dvY9alGd-K9GpRzPlVT0gibOb76MEsOycQal7-ybqkSJMHoSf1V4nmqQ";
+        String url = "https://qyapi.weixin.qq.com/cgi-bin/tag/addtagusers?access_token=" + AccessToken;
 
-        Map<String ,String> mapHeaders = new HashMap<String,String>();
-        mapHeaders.put("Content-Type","application/x-www-form-urlencoded;charset=utf-8");
+        Map<String, String> mapHeaders = new HashMap<String, String>();
+        mapHeaders.put("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
 
         List<String> user = new ArrayList<>();
-        user.add("CaiLanJun");
+        user.add("tanruinian");
 
 
         System.out.println(user);
 
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("tagid","900001");
-        jsonObject.put("userlist",user);
+        jsonObject.put("tagid", "900001");
+        jsonObject.put("userlist", user);
 
-        String str = HttpUtils.getResultEntity(url,mapHeaders,jsonObject,HttpUtils.POST);
+        String str = HttpUtils.getResultEntity(url, mapHeaders, jsonObject, HttpUtils.POST);
 
         JSONObject jo = JSON.parseObject(str);
         String errcode = jo.getString("errcode");
@@ -104,13 +100,12 @@ public class WeixinTag
      * 删除标签成员
      */
     @Test
-    public void deleteTagUsers()
-    {
+    public void deleteTagUsers() {
         String AccessToken = "cI28pQZ338gbbtf0tTaD0npp84hS1rQSYLf7gSwjyj9Z0Gtx25C9ogXebHWAYEN3gM4g8VVyfQpNzR4QkaRrUmk8bexqMwJ-x8TxcxPFRjh8o9QpDYQ-4ic51XD37hnNr9opgyfCSxD4ZInkIglTqM4YVt1x58YaaaQbA7OY_aoN-tN5jXtf1gnX81wVZaPrAFBocJpKPH6GO6dk56ivLQ";
-        String url = "https://qyapi.weixin.qq.com/cgi-bin/tag/deltagusers?access_token="+AccessToken;
+        String url = "https://qyapi.weixin.qq.com/cgi-bin/tag/deltagusers?access_token=" + AccessToken;
 
-        Map<String ,String> mapHeaders = new HashMap<String,String>();
-        mapHeaders.put("Content-Type","application/x-www-form-urlencoded;charset=utf-8");
+        Map<String, String> mapHeaders = new HashMap<String, String>();
+        mapHeaders.put("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
 
         List<String> users = new ArrayList<String>();
         users.add("WangZhenGang");
@@ -118,10 +113,10 @@ public class WeixinTag
         users.add("Chenyuanyuan");
 
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("tagid","900001");
-        jsonObject.put("userlist",users);
+        jsonObject.put("tagid", "900001");
+        jsonObject.put("userlist", users);
 
-        String str = HttpUtils.getResultEntity(url,mapHeaders,jsonObject,HttpUtils.POST);
+        String str = HttpUtils.getResultEntity(url, mapHeaders, jsonObject, HttpUtils.POST);
         JSONObject jo = JSON.parseObject(str);
         String errcode = jo.getString("errcode");
         System.out.println(errcode);
@@ -133,15 +128,14 @@ public class WeixinTag
      * 获取标签成员
      */
     @Test
-    public void getTagUsers()
-    {
+    public void getTagUsers() {
         String AccessToken = "cI28pQZ338gbbtf0tTaD0npp84hS1rQSYLf7gSwjyj9Z0Gtx25C9ogXebHWAYEN3gM4g8VVyfQpNzR4QkaRrUmk8bexqMwJ-x8TxcxPFRjh8o9QpDYQ-4ic51XD37hnNr9opgyfCSxD4ZInkIglTqM4YVt1x58YaaaQbA7OY_aoN-tN5jXtf1gnX81wVZaPrAFBocJpKPH6GO6dk56ivLQ";
-        String url = "https://qyapi.weixin.qq.com/cgi-bin/tag/get?access_token="+AccessToken+"&tagid=900001";
+        String url = "https://qyapi.weixin.qq.com/cgi-bin/tag/get?access_token=" + AccessToken + "&tagid=900001";
 
-        Map<String,String> mapHeaders = new HashMap<>();
-        mapHeaders.put("Content-Type","application/x-www-form-urlencoded;charset=utf-8");
+        Map<String, String> mapHeaders = new HashMap<>();
+        mapHeaders.put("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
 
-        String str = HttpUtils.getResultEntity(url,mapHeaders,null,HttpUtils.GET);
+        String str = HttpUtils.getResultEntity(url, mapHeaders, null, HttpUtils.GET);
 
         System.out.println(str);
 
