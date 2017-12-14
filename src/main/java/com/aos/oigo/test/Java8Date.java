@@ -3,6 +3,7 @@ package com.aos.oigo.test;
 import org.junit.Test;
 
 import java.time.*;
+import java.time.format.DateTimeFormatter;
 
 /**
  * @Author : HuangHaoXin
@@ -16,7 +17,8 @@ public class Java8Date
     {
         //获取日期
         LocalDate today = LocalDate.now();
-        System.out.println(today);
+        DateTimeFormatter dt = DateTimeFormatter.ofPattern("yyyyMMdd");
+        System.out.println(today.format(dt));
     }
 
     @Test

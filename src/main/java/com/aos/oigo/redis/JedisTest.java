@@ -6,6 +6,10 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
 public class JedisTest {
 
 	//通过java程序访问redis数据库
@@ -16,15 +20,15 @@ public class JedisTest {
 	public void test1(){
 		
 		//1、获得连接对象
-		Jedis jedis = new Jedis("192.168.186.131", 6379);
+		Jedis jedis = new Jedis("172.18.200.14", 6379);
 		
 		//2、获得数据
 		String username = jedis.get("username");
 		System.out.println(username);
 		
 		//3、存储
-		jedis.set("addr", "北京");
-		System.out.println(jedis.get("addr"));
+		/*jedis.set("addr", "北京");
+		System.out.println(jedis.get("addr"));*/
 
 		
 	}
@@ -46,8 +50,15 @@ public class JedisTest {
 		Jedis jedis = pool.getResource();
 		
 		//3、操作数据库
-		jedis.set("username","Huanghaoxin");
-		System.out.println(jedis.get("username"));
+		//jedis.set("username","Huanghaoxin");
+		//System.out.println(jedis.get("username"));
+		//System.out.println(jedis.get("TEST_20171214"));
+		Set<String> set =  jedis.keys("*");
+		Iterator<String> it = set.iterator();
+		while (it.hasNext()) {
+			String str = it.next();
+			System.out.println(str);
+		}
 		
 		//4、关闭资源
 		jedis.close();
