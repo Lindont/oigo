@@ -9,11 +9,9 @@ import java.util.*;
  * @Description :Lambda表达式
  * @Date : Create in 2017-10-13
  */
-public class Lambda
-{
+public class Lambda {
     @Test
-    public void lambda()
-    {
+    public void lambda() {
         Collection col = new ArrayList();
         col.add("huang");
         col.add("hao");
@@ -21,7 +19,6 @@ public class Lambda
 
         col.forEach(System.out::println);
         System.out.println("");
-
 
 
         Collection col1 = new ArrayList();
@@ -33,7 +30,6 @@ public class Lambda
         System.out.println("");
 
 
-
         Collection col2 = new HashSet();
         col2.add("one");
         col2.add("two");
@@ -42,7 +38,6 @@ public class Lambda
         Iterator it = col2.iterator();
         it.forEachRemaining(p -> System.out.println(p));
         System.out.println("");
-
 
 
         Collection col3 = new HashSet();
@@ -57,14 +52,12 @@ public class Lambda
     }
 
 
-
     @Test
-    public void lambda2()
-    {
-        List<Integer> primes = Arrays.asList(new Integer[]{2,3,5,7});
+    public void lambda2() {
+        List<Integer> primes = Arrays.asList(new Integer[]{2, 3, 5, 7});
         int factor = 2;
         primes.forEach(element -> {
-            System.out.println(factor*element);
+            System.out.println(factor * element);
         });
     }
 }
