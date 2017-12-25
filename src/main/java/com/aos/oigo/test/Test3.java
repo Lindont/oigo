@@ -4,6 +4,8 @@ import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @Author : HuangHaoXin
@@ -27,5 +29,16 @@ public class Test3 {
         map.forEach((a, b) -> {
             System.out.println("a: " + a + " b: " + b);
         });
+    }
+
+
+    @Test
+    public void tes3() {
+        String str = "http://www.jb51.net";
+        String pattern = "^((https|http|ftp|rtsp|mms)?:\\/\\/)[^\\s]+";
+
+        Pattern r = Pattern.compile(pattern);
+        Matcher m = r.matcher(str);
+        System.out.println(m.matches());
     }
 }
