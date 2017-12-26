@@ -21,6 +21,7 @@ public class JedisTest {
 		
 		//1、获得连接对象
 		Jedis jedis = new Jedis("172.18.200.14", 6379);
+		//Jedis jedis = new Jedis("123.207.185.217", 6379);
 		
 		//2、获得数据
 		String username = jedis.get("username");

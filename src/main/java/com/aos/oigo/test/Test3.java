@@ -41,4 +41,9 @@ public class Test3 {
         Matcher m = r.matcher(str);
         System.out.println(m.matches());
     }
+
+    @Test
+    public void test4() {
+        String[] strArr = new String[]{"huang","hao","xin"};
+    }
 }
