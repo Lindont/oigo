@@ -1,5 +1,7 @@
 package com.aos.oigo.Json;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.junit.Test;
@@ -36,6 +38,10 @@ public class JsonTest {
         return student;
     }
 
+    /**
+     * Gson
+     * @return
+     */
 
     public String getGsonJson() {
         Student student = getData();
@@ -72,5 +78,39 @@ public class JsonTest {
         maps.forEach((a, b) -> {
             System.out.println(a + " : " + b);
         });
+    }
+
+
+    /**
+     * FastJson
+     * @return
+     */
+    public String getFastJson() {
+        Student student = getData();
+        String str = JSON.toJSONString(student);
+        return str;
+    }
+
+    @Test
+    public void test4() {
+        String str = getFastJson();
+        JSONObject jsonObject = JSON.parseObject(str);
+
+        Student student = JSONObject.toJavaObject(jsonObject,Student.class);
+
+        System.out.println(student.getId());
+        System.out.println(student.getAge());
+        System.out.println(student.getNickName());
+    }
+
+    @Test
+    public void test5() {
+        String str = getFastJson();
+
+        Student student = JSON.toJavaObject(JSON.parseObject(str),Student.class);
+
+        System.out.println(student.getId());
+        System.out.println(student.getAge());
+        System.out.println(student.getNickName());
     }
 }

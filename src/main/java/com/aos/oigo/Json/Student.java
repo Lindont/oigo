@@ -18,4 +18,5 @@ public class Student {
     private String email;
     private List<String> books;
     private HashMap<String, String> booksMap;
+    private List<Book> book;
 }
