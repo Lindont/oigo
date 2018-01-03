@@ -2,6 +2,11 @@ package com.aos.oigo.test;
 
 import org.junit.Test;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -44,6 +49,7 @@ public class Test3 {
 
     @Test
     public void test4() {
-        String[] strArr = new String[]{"huang","hao","xin"};
+        String[] strArr = new String[]{"huang", "hao", "xin"};
     }
+
 }
