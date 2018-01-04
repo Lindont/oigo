@@ -15,15 +15,11 @@
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 
-    <!-- 各层组件包扫描 -->
 
-    <context:component-scan base-package="com.aos.oigo.*" use-default-filters="false">
+    <!-- SpringMVC扫描包组件(@Controller) -->
+    <context:component-scan base-package="com.aos.oigo.controller" use-default-filters="false">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
-    <context:component-scan base-package="com.aos.oigo.*">
-        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-    </context:component-scan>
-
 
 
     <mvc:annotation-driven>
