@@ -5,26 +5,28 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:tx="http://www.springframework.org/schema/tx"
-       xsi:schemaLocation="
-       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
-       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd ">
 
+    <!-- 加载配置文件 -->
+    <context:property-placeholder location="classpath*:config/*.properties" />
+
+    <context:component-scan base-package="com.aos.oigo" />
 
     <!-- Spring扫描包组件(@Service,@Repository,@Component) -->
-    <context:component-scan base-package="com.aos.oigo.*">
+    <!--<context:component-scan base-package="com.aos.oigo.*">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-    </context:component-scan>
+    </context:component-scan>-->
 
 
     <!-- 事务管理器 -->
-    <bean id="transactionManager"
-          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <!-- 数据源 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />
     </bean>
+
     <!-- 通知 -->
     <tx:advice id="transactionAdvice" transaction-manager="transactionManager">
         <tx:attributes>
@@ -49,17 +51,21 @@
             <tx:method name="datagrid*" propagation="SUPPORTS" />
         </tx:attributes>
     </tx:advice>
-    <!-- 切面 -->
+
+    <!-- AOP -->
     <!-- service..*.*(..)) 扫描包括子包 -->
     <!-- service.*.*(..)) 扫描不包括子包 -->
-    <aop:config>
-        <aop:advisor advice-ref="transactionAdvice" pointcut="execution(* com.aos.oigo.service..*.*(..))" />
-    </aop:config>
 
-    <bean id="druid-stat-interceptor" class="com.alibaba.druid.support.spring.stat.DruidStatInterceptor"></bean>
+    <!-- 通知spring使用cglib实现AOP代理 -->
+    <!--<aop:aspectj-autoproxy proxy-target-class="true" />-->
 
+    <!--<aop:config>
+        <aop:advisor advice-ref="transactionAdvice" pointcut="execution(* com.aos.oigo.service.Impl.*.*(..))" />
+    </aop:config>-->
+
+    <!--<bean id="druid-stat-interceptor" class="com.alibaba.druid.support.spring.stat.DruidStatInterceptor"></bean>
     <aop:config>
         <aop:pointcut id="druid-stat-pointcut" expression="execution(* com.aos.oigo.service..*.*(..))" />
         <aop:advisor advice-ref="druid-stat-interceptor" pointcut-ref="druid-stat-pointcut" order="1"/>
-    </aop:config>
+    </aop:config>-->
 </beans>
