@@ -15,7 +15,7 @@ public class JedisPoolUtils {
 	static{
 		
 		//加载配置文件
-		InputStream in = JedisPoolUtils.class.getClassLoader().getResourceAsStream("redis.properties");
+		InputStream in = JedisPoolUtils.class.getClassLoader().getResourceAsStream("config/redis.properties");
 		Properties pro = new Properties();
 		try {
 			pro.load(in);
