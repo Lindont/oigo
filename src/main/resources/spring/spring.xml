@@ -63,7 +63,7 @@
 
     <bean id="druid-stat-interceptor" class="com.alibaba.druid.support.spring.stat.DruidStatInterceptor"></bean>
     <aop:config>
-        <aop:pointcut id="druid-stat-pointcut" expression="execution(* com.aos.oigo.service..*.*(..))"/>
+        <aop:pointcut id="druid-stat-pointcut" expression="execution(* com.aos.oigo.service.Impl.*.*(..))"/>
         <aop:advisor advice-ref="druid-stat-interceptor" pointcut-ref="druid-stat-pointcut" order="1"/>
     </aop:config>
 
