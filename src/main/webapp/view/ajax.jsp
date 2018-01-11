@@ -43,8 +43,10 @@
                 //请求完成后回调
                 console.log('---请求完成---')
             },
-            error: function () {
-
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                console.log(XMLHttpRequest.status);
+                console.log("error: " + textStatus);
+                console.log(errorThrown);
             }
         });
     });
@@ -73,12 +75,13 @@
                 //请求完成后回调
                 console.log('---请求完成---')
             },
-            error: function () {
-
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                console.log(XMLHttpRequest.status);
+                console.log("error: " + textStatus);
+                console.log(errorThrown);
             }
         });
     });
-
 
 
     $('#ajaxtext4').click(function () {
@@ -89,8 +92,8 @@
             cache: false,
             type: 'GET',
             /*data: '{}',
-            dataType: 'json',
-            contentType: 'application/json;charset=utf-8',*/
+             dataType: 'json',
+             contentType: 'application/json;charset=utf-8',*/
             beforeSend: function (XMLHttpRequest) {
                 //发送请求前调用
                 console.log('---发送前---')
@@ -102,8 +105,10 @@
                 //请求完成后回调
                 console.log('---请求完成---')
             },
-            error: function () {
-
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                console.log(XMLHttpRequest.status);
+                console.log("error: " + textStatus);
+                console.log(errorThrown);
             }
         });
     });
