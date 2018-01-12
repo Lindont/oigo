@@ -71,14 +71,14 @@ public class WeixinTag {
      */
     @Test
     public void addTagUsers() {
-        String AccessToken = "ObbREVrlnt01hQiafxHlvEIqFgqIzVG2MIwocjx0Fw8IcoOBhNfoIHDEoruxw7wL_DAYFH9Ev-vBp36ktfuwQxYkwZ0zZGs4DK3BZ4YgdX6vA1GOjKHKmTR7jLRNcdfMWMwbMRA2G8r7g2ewBi1iZKgHDFbVo3dvY9alGd-K9GpRzPlVT0gibOb76MEsOycQal7-ybqkSJMHoSf1V4nmqQ";
+        String AccessToken = "jad5zHyC0QEmNErBi99LW8wCFPi6jz7kgtxGkZwBypJrmr_WhKe0m5fXrlUy6hCVI9cAPai007iZSL6rwvgNkm7jJq6pHc5-1JKw_iLhkV5fexjZ3Ql29f-B1BerH4ey15MaTqhJViMSCTTVKQAIEalg_nxGSbwXprGOFAhq6HaJzoRm-5wvDyAO_Jo6EbdgdUEVv-j45FLoz5jnJcJZhg";
         String url = "https://qyapi.weixin.qq.com/cgi-bin/tag/addtagusers?access_token=" + AccessToken;
 
         Map<String, String> mapHeaders = new HashMap<String, String>();
         mapHeaders.put("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
 
         List<String> user = new ArrayList<>();
-        user.add("tanruinian");
+        user.add("LongFuQuan");
 
 
         System.out.println(user);

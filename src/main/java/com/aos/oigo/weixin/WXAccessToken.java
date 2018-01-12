@@ -19,8 +19,7 @@ public class WXAccessToken {
 
     @Test
     public void getToken() {
-        //String url = "https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=" + WeixinConfig.CORPID + "&corpsecret=" + WeixinConfig.SECRET;
-        String url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx6354189dc4ade2e9&secret=be81b93944e8357b79d90737e05c8cee";
+        String url = "https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=" + WeixinConfig.CORPID + "&corpsecret=" + WeixinConfig.SECRET;
 
         Map<String, String> mapHeaders = new HashMap<String, String>();
         mapHeaders.put("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
@@ -28,7 +27,7 @@ public class WXAccessToken {
         String str = HttpUtils.getResultEntity(url, mapHeaders, null, HttpUtils.GET);
 
         System.out.println(str);
-        /*JSONObject jo = JSON.parseObject(str);
+        JSONObject jo = JSON.parseObject(str);
         String errcode = jo.getString("errcode");
         String errmsg = jo.getString("errmsg");
         String access_token = jo.getString("access_token");
@@ -36,6 +35,6 @@ public class WXAccessToken {
         System.out.println("errcode: " + errcode);
         System.out.println("errmsg: " + errmsg);
         System.out.println("access_token: " + access_token);
-        System.out.println("expires_in: " + expires_in);*/
+        System.out.println("expires_in: " + expires_in);
     }
 }
