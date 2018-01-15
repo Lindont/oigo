@@ -12,7 +12,7 @@ import java.io.File;
  * @Date : Create in 2018-01-03
  */
 public class IoWriteFile {
-    Logger logger = LoggerFactory.getLogger(IoWriteFile.class);
+    private static final Logger logger = LoggerFactory.getLogger(IoWriteFile.class);
     public void traverseFolder(String path) {
         File file = new File(path);
         if (file.exists()) {
@@ -34,9 +34,8 @@ public class IoWriteFile {
                             f.renameTo(new File(f.getAbsolutePath().replace("[www.17zixueba.com]", "")));
                         }
 
-                        if ("一起自学吧 - IT视频教程分享社区.url".equals(f.getName()) ||
-                                "学习路线.png".equals(f.getName()) ||
-                                "课前必读.txt".equals(f.getName())) {
+                        if ("一起自学吧 - IT视频教程分享社区.url".equals(f.getName()) || "学习路线.png".equals(f.getName()) ||
+                                "课前必读.txt".equals(f.getName()) || "关注微信获赠最新免费课程.jpg".equals(f.getName())) {
                             logger.info(f.getName());
                             f.delete();
                         }
@@ -52,6 +51,6 @@ public class IoWriteFile {
 
     @Test
     public void test() {
-        traverseFolder("F:\\BaiduNetdiskDownload");
+        traverseFolder("D:\\BaiduNetdiskDownload\\03.第三阶段 大数据实时分析Storm入门到精通");
     }
 }
