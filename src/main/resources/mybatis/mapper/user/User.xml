@@ -3,7 +3,7 @@
 <mapper namespace="com.aos.oigo.dao.UserDao">
 
     <select id="getUserList" resultType="com.aos.oigo.pojo.User">
-        SELECT * FROM USER
+        SELECT * FROM user
     </select>
 
 </mapper>

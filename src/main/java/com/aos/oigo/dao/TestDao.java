@@ -13,6 +13,6 @@ import java.util.List;
  */
 @Repository
 public interface TestDao {
-    @Select("SELECT * FROM USER")
+    @Select("SELECT * FROM user")
     List<User> getAllUser();
 }

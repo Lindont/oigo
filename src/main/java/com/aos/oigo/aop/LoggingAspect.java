@@ -77,7 +77,7 @@ public class LoggingAspect {
     private Object aroundDoLog(ProceedingJoinPoint pjp) throws Throwable {
         log.info("Start Method: " + pjp.toString());
         Object value = pjp.proceed();
-        log.info("Stop Method: " + pjp.proceed());
+        log.info("Stop Method: " + value);
         return value;
     }
 
