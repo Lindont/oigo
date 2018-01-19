@@ -35,7 +35,8 @@ public class IoWriteFile {
                         }
 
                         if ("一起自学吧 - IT视频教程分享社区.url".equals(f.getName()) || "学习路线.png".equals(f.getName()) ||
-                                "课前必读.txt".equals(f.getName()) || "关注微信获赠最新免费课程.jpg".equals(f.getName())) {
+                                "课前必读.txt".equals(f.getName()) || "关注微信获赠最新免费课程.jpg".equals(f.getName()) ||
+                                "关注微信免费下载最新课程.jpg".equals(f.getName())) {
                             logger.info(f.getName());
                             f.delete();
                         }
@@ -51,6 +52,6 @@ public class IoWriteFile {
 
     @Test
     public void test() {
-        traverseFolder("D:\\BaiduNetdiskDownload\\03.第三阶段 大数据实时分析Storm入门到精通");
+        traverseFolder("D:\\BaiduNetdiskDownload\\2017年最新大数据Spark从入门到精通全套视频教程附配套资料");
     }
 }

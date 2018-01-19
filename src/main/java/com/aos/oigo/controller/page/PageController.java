@@ -1,5 +1,7 @@
 package com.aos.oigo.controller.page;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -8,15 +10,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class PageController {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(PageController.class);
+
     @RequestMapping("/")
     public String showIndex(@CookieValue(value = "JSESSIONID", defaultValue = "") String sessionId,
                             @RequestHeader("User-Agent") String userAgent,
                             @RequestHeader("Accept") String[] accepts) {
-        System.out.println(userAgent);
+
+        LOGGER.info(userAgent);
         for (String accept : accepts) {
-            System.out.println(accept);
+            LOGGER.info(accept);
         }
-        System.out.println("SessionID: " + sessionId);
+        LOGGER.info("SessionID: " + sessionId);
         return "index";
     }
 
