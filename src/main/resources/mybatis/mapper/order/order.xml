@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aos.oigo.dao.OrderInfoDao">
+
+    <resultMap id="OrderAndUserResultMap" type="com.aos.oigo.pojo.Order">
+        <id column="order_code" property="orderCode"/>  <!--订单号-唯一标识-->
+        <result column="customer_id" property="customerId"/>
+        <result column="create_time" property="createtime"/>
+        <result column="note" property="note"/>
+        <association property="customer" javaType="com.aos.oigo.pojo.Customer">
+            <id column="customer_id" property="customerId"/>
+            <result column="customer_name" property="customerName"/>
+            <result column="customer_age" property="age"/>
+            <result column="customer_birthday" property="birthday"/>
+        </association>
+    </resultMap>
+
+    <select id="selectOrderInfo" parameterType="int" resultMap="OrderAndUserResultMap">
+        SELECT
+        o.order_code,
+        o.customer_id,
+        o.create_time,
+        o.note,
+        c.customer_name,
+        c.customer_age,
+        c.customer_birthday
+        FROM order_info o , customer c
+        WHERE o.customer_id = c.customer_id
+    </select>
+</mapper>

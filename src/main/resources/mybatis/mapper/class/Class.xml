@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ClassInfoDao">
+
+    <sql id="base_class_column">
+        id,class_name,student_count
+    </sql>
+    <sql id="base_student_column">
+        id AS student_id,name,age,birthday,address
+    </sql>
+
+
+    <resultMap id="class_info_resultmap" type="com.aos.oigo.pojo.ClassInfo">
+        <id column="id" property="id"/>
+        <result column="class_name" property="className"/>
+        <result column="student_count" property="studentCount"/>
+    </resultMap>
+
+    <select id="selectClassInfo" parameterType="int">
+        SELECT <include refid="base_class_column"/> , <include refid="base_student_column"/>
+
+        FROM class_info c, student f WHERE c.id = f.id AND id = #{id}
+    </select>
+</mapper>

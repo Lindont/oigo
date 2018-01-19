@@ -1,9 +1,6 @@
 package com.aos.oigo.aop;
 
-import org.apache.commons.math3.exception.MathArithmeticException;
-import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.*;
+import org.aspectj.lang.annotation.Aspect;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -25,11 +22,13 @@ public class LoggingAspect {
      * @param a
      * @param b
      */
+    /*
     @Before("execution(* com.aos.oigo.service.Impl.*.*(..)) && args(a,b)")
     private void beforeDoLog(JoinPoint jp, int a, int b) {
         log.info("param1: " + a + ", param2: " + b);
         log.info("Before: " + jp.toString());
     }
+    */
 
     /**
      * 函数正常返回后
@@ -37,11 +36,13 @@ public class LoggingAspect {
      *
      * @param jp
      */
-    /*@AfterReturning(pointcut = "execution(* com.aos.oigo.service.Impl.*.*(..))", returning = "returnVal")
+    /*
+    @AfterReturning(pointcut = "execution(* com.aos.oigo.service.Impl.*.*(..))", returning = "returnVal")
     private void afterReturningDoLog(JoinPoint jp, Object returnVal) {
         log.info("AfterReturning Result Value: " + returnVal);
         log.info("AfterReturning: " + jp.toString());
-    }*/
+    }
+    */
 
     /**
      * 函数抛出异常后
@@ -50,21 +51,25 @@ public class LoggingAspect {
      * @param jp
      * @param ex
      */
+    /*
     @AfterThrowing(pointcut = "execution(* com.aos.oigo.service.Impl.*.*(..))", throwing = "ex")
     private void afterThrowingDoLog(JoinPoint jp, MathArithmeticException ex) {
         log.info("Exception Message: " + ex.getMessage());
         log.info("AfterThrowing: " + jp.toString());
     }
 
+    */
     /**
      * 函数返回后
      *
      * @param jp
      */
+    /*
     @After("execution(* com.aos.oigo.service.Impl.*.*(..))")
     private void afterDoLog(JoinPoint jp) {
         log.info("After: " + jp.toString());
     }
+    */
 
     /**
      * 函数执行前后
@@ -73,13 +78,15 @@ public class LoggingAspect {
      * @return
      * @throws Throwable
      */
+    /*
     @Around("execution(* com.aos.oigo.service.Impl.*.*(..))")
     private Object aroundDoLog(ProceedingJoinPoint pjp) throws Throwable {
-        log.info("Start Method: " + pjp.toString());
+        //log.info("Start Method: " + pjp.toString());
         Object value = pjp.proceed();
-        log.info("Stop Method: " + value);
+        //log.info("Stop Method: " + value);
         return value;
     }
+    */
 
     /**
      * 函数执行前后
