@@ -1,5 +1,6 @@
 package com.aos.oigo.service.Impl;
 
+import com.aos.oigo.dao.OrderInfoDao;
 import com.aos.oigo.pojo.Order;
 import com.aos.oigo.service.OrderInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +17,11 @@ import java.util.List;
 public class OrderInfoServiceImpl implements OrderInfoService {
 
     @Autowired
-    OrderInfoService orderInfoService;
+    OrderInfoDao orderInfoDao;
 
 
     @Override
     public List<Order> selectOrderInfo() {
-        return orderInfoService.selectOrderInfo();
+        return orderInfoDao.selectOrderInfo();
     }
 }

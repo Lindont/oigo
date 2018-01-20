@@ -22,7 +22,7 @@
     </context:component-scan>
 
 
-    <mvc:annotation-driven>
+    <mvc:annotation-driven conversion-service="conversionService">
         <!-- 设置不使用默认的转换器 -->
         <mvc:message-converters register-defaults="false">
             <!-- 配置Spring的转换器 -->
@@ -36,9 +36,32 @@
                         <value>application/json;charset=UTF-8</value>
                     </list>
                 </property>
+                <!-- Fastjson序列化配置,格式化时间等 -->
+                <property name="fastJsonConfig">
+                    <bean class="com.alibaba.fastjson.support.config.FastJsonConfig">
+                        <property name="serializerFeatures">
+                            <list>
+                                <value>WriteDateUseDateFormat</value>
+                                <value>WriteMapNullValue</value>
+                                <value>QuoteFieldNames</value>
+                            </list>
+                        </property>
+                    </bean>
+                </property>
             </bean>
         </mvc:message-converters>
     </mvc:annotation-driven>
+
+
+    <!-- 自定义参数绑定 -->
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="converters">
+            <list>
+                <bean class="com.aos.oigo.converter.DateConverter"/>
+            </list>
+        </property>
+    </bean>
+
 
     <!-- 加载静态资源 -->
     <mvc:resources location="/static/" mapping="/static/**"/>
@@ -54,7 +77,7 @@
             <props>
                 <prop key="template_update_delay">10</prop>
                 <prop key="locale">zh_CN</prop>
-                <prop key="datetime_format">yyyy-MM-dd</prop>
+                <prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
                 <prop key="date_format">yyyy-MM-dd</prop>
                 <prop key="number_format">#.##</prop>
             </props>
