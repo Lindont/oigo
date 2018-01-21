@@ -22,6 +22,7 @@ public class OrderInfoServiceImpl implements OrderInfoService {
 
     @Override
     public List<Order> selectOrderInfo() {
-        return orderInfoDao.selectOrderInfo();
+        List<Order> orderList = orderInfoDao.selectOrderInfo();
+        return orderList;
     }
 }

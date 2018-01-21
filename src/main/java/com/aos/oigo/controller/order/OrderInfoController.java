@@ -24,14 +24,9 @@ public class OrderInfoController {
     public ModelAndView getOrderInfo() {
 
         List<Order> orders = orderInfoService.selectOrderInfo();
-
-        for (Order order : orders) {
-            System.out.println(order);
-        }
-
         ModelAndView mv = new ModelAndView();
         mv.setViewName("order");
-        mv.addObject("orders",orders);
+        mv.addObject("orders", orders);
         return mv;
     }
 

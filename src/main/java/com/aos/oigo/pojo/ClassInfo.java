@@ -12,6 +12,7 @@ import java.util.List;
 @Data
 public class ClassInfo {
     private int id;
+    private String classId;
     private String className;
     private int studentCount;
     private List<Student> studentList;

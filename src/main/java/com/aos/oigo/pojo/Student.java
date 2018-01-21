@@ -11,7 +11,8 @@ import java.util.Date;
  */
 @Data
 public class Student {
-    private int id;
+    private String studentId;
+    private String classId;
     private String name;
     private int age;
     private Date birthday;
