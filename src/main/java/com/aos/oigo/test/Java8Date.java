@@ -17,7 +17,7 @@ public class Java8Date
     {
         //获取日期
         LocalDate today = LocalDate.now();
-        DateTimeFormatter dt = DateTimeFormatter.ofPattern("yyyyMMdd");
+        DateTimeFormatter dt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         System.out.println(today.format(dt));
     }
 
@@ -26,7 +26,8 @@ public class Java8Date
     {
         //获取时间
         LocalTime time = LocalTime.now();
-        System.out.println(time);
+        DateTimeFormatter dt = DateTimeFormatter.ofPattern("HH:mm:ss");
+        System.out.println(time.format(dt));
     }
 
     @Test
@@ -44,7 +45,8 @@ public class Java8Date
     {
         //获取当前时间戳
         LocalDateTime dt = LocalDateTime.now();
-        System.out.println(dt);
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        System.out.println(dtf.format(dt));
 
         Instant timestamp = Instant.now();
         System.out.println(timestamp);

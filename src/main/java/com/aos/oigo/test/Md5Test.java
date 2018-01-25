@@ -6,7 +6,8 @@ public class Md5Test
 {
     public static void main(String[] args)
     {
-        String md5str = MD5Util.getMd5("111111");
+        int price = 1000;
+        String md5str = MD5Util.getMd5("123456" + price);
         System.out.println(md5str);
     }
 }
