@@ -21,7 +21,7 @@ public class WeixinTag {
      */
     @Test
     public void createTag() {
-        String AccessToken = "sDI6WCfucy20OE8TwhubgJMFKLwgYMrPGYSjDKbzaQqqMBdvOjFt1gvyxvJ1lPei-AoEZggapvYyry6ktsZu88FE0DEBM9gVi0o-efFwCL_nPyopChtexeWnplIzvqcZRWF78u11YsM97L6cgAuRZ0HoRpkP3uMECTq21EgwNXhygjYaO6hEadHpQjqgYPtG9zZmbqAFGQS4v9dOds2EOw";
+        String AccessToken = "P2MZgTFS8eZRCye3Vjd4eZTTQGeLTi6gkJZPhoo6hBqJQsQ4zym2hldLdJda2ZOKp2u1NGEDjGKzIwhsu0iNsxC5a3KSQwTSs9gW-ea0-jPLbtdlmhOW1m3DkSxzYgChNjj4Btul76fKKxj_1oFjOCFpSy8Hrqu0YSyxltwyXYVekacRSLhux4oMN5IAMg1E3ka8IOm7AFxRo3oHAXnhHA";
         String url = "https://qyapi.weixin.qq.com/cgi-bin/tag/create?access_token=" + AccessToken;
 
         Map<String, String> mapHeaders = new HashMap<String, String>();
@@ -129,7 +129,7 @@ public class WeixinTag {
      */
     @Test
     public void getTagUsers() {
-        String AccessToken = "cI28pQZ338gbbtf0tTaD0npp84hS1rQSYLf7gSwjyj9Z0Gtx25C9ogXebHWAYEN3gM4g8VVyfQpNzR4QkaRrUmk8bexqMwJ-x8TxcxPFRjh8o9QpDYQ-4ic51XD37hnNr9opgyfCSxD4ZInkIglTqM4YVt1x58YaaaQbA7OY_aoN-tN5jXtf1gnX81wVZaPrAFBocJpKPH6GO6dk56ivLQ";
+        String AccessToken = "P2MZgTFS8eZRCye3Vjd4eZTTQGeLTi6gkJZPhoo6hBqJQsQ4zym2hldLdJda2ZOKp2u1NGEDjGKzIwhsu0iNsxC5a3KSQwTSs9gW-ea0-jPLbtdlmhOW1m3DkSxzYgChNjj4Btul76fKKxj_1oFjOCFpSy8Hrqu0YSyxltwyXYVekacRSLhux4oMN5IAMg1E3ka8IOm7AFxRo3oHAXnhHA";
         String url = "https://qyapi.weixin.qq.com/cgi-bin/tag/get?access_token=" + AccessToken + "&tagid=900001";
 
         Map<String, String> mapHeaders = new HashMap<>();

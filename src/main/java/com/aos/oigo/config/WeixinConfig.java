@@ -7,6 +7,6 @@ package com.aos.oigo.config;
  */
 public class WeixinConfig {
     public final static String CORPID = "ww91a9c79f5bc82e54";
-    public final static String SECRET = "aD7yRay2tdkMr4ljcntWgAm7Q7T9TZHl1aA6OBpZh6k";
+    public final static String SECRET = "aD7yRay2tdkMr4ljcntWgMflwJqCnm9ko7wAKdOpBxI";
     public final static String OIGO_AGENTID = "1000002";
 }
