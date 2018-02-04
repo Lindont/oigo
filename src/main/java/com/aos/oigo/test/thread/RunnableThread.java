@@ -1,11 +1,11 @@
-package com.aos.oigo.test;
+package com.aos.oigo.test.thread;
 
 /**
  * @Author : HuangHaoXin
  * @Description :
  * @Date : Create in 2018-02-02
  */
-public class ThreadTest1 implements Runnable {
+public class RunnableThread implements Runnable {
     @Override
     public void run() {
         for (int i = 0; i <= 100; i++) {

@@ -1,4 +1,7 @@
-package com.aos.oigo.test;
+package com.aos.oigo.test.thread;
+
+import com.aos.oigo.test.QuickSort;
+import com.aos.oigo.test.RandomNumber;
 
 /**
  * @Author : HuangHaoXin

@@ -1,4 +1,4 @@
-package com.aos.oigo.test;
+package com.aos.oigo.test.jsondemo;
 
 import com.alibaba.fastjson.JSONObject;
 import org.junit.Test;

@@ -1,13 +1,11 @@
 package com.aos.oigo.redis;
 
 import org.junit.Test;
-
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
 import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
 
 public class JedisTest {
@@ -20,16 +18,16 @@ public class JedisTest {
 	public void test1(){
 		
 		//1、获得连接对象
-		Jedis jedis = new Jedis("172.18.200.14", 6379);
+		Jedis jedis = new Jedis("123.207.185.217", 6379);
 		//Jedis jedis = new Jedis("123.207.185.217", 6379);
 		
 		//2、获得数据
-		String username = jedis.get("username");
-		System.out.println(username);
+		//String username = jedis.get("username");
+		//System.out.println(username);
 		
 		//3、存储
-		/*jedis.set("addr", "北京");
-		System.out.println(jedis.get("addr"));*/
+		jedis.set("username", "Lindont");
+		System.out.println(jedis.get("username"));
 
 		
 	}

@@ -1,4 +1,4 @@
-package com.aos.oigo.test;
+package com.aos.oigo.test.thread;
 
 /**
  * @Author : HuangHaoXin
