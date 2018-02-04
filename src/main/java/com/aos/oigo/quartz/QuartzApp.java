@@ -1,4 +1,4 @@
-package com.aos.oigo.quarzt;
+package com.aos.oigo.quartz;
 
 import org.quartz.SchedulerException;
 
