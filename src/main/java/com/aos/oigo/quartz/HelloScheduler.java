@@ -13,6 +13,9 @@ import java.time.format.DateTimeFormatter;
  */
 public class HelloScheduler {
 
+    /**
+     * SimpleTrigger
+     */
     public void testSimpleTrigger() throws SchedulerException {
         //在Scheduler里创建一个JobDetail实例，将该实例与Hello Job Class绑定
         JobDetail jobDetail = JobBuilder.newJob(HelloJob.class).withIdentity("myJob", "JobGroup1").build();
@@ -21,10 +24,6 @@ public class HelloScheduler {
         System.out.println("JobDetail's group：" + jobDetail.getKey().getGroup());
         System.out.println("JobDetail's jobClass：" + jobDetail.getJobClass().getName());
 
-
-        /**
-         * SimpleTrigger
-         */
         //创建一个Trigger实例 , 定义开始执行时间，重复执行时间，重复执行次数
         SimpleTrigger simpleTrigger = (SimpleTrigger) TriggerBuilder
                 .newTrigger()
@@ -53,6 +52,11 @@ public class HelloScheduler {
     }
 
 
+
+
+    /**
+     * CronTrigger
+     */
     public void testCronTrigger() throws SchedulerException {
         //在Scheduler里创建一个JobDetail实例，将该实例与Hello Job Class绑定
         JobDetail jobDetail = JobBuilder.newJob(HelloJob.class).withIdentity("myJob", "JobGroup2").build();
@@ -61,9 +65,6 @@ public class HelloScheduler {
         System.out.println("JobDetail's group：" + jobDetail.getKey().getGroup());
         System.out.println("JobDetail's jobClass：" + jobDetail.getJobClass().getName());
 
-        /**
-         * CronTrigger
-         */
         CronTrigger cronTrigger = (CronTrigger) TriggerBuilder.newTrigger()
                 .withIdentity("cronTrigger", "TriggerGroup2").withSchedule(CronScheduleBuilder.cronSchedule("0/10 * * * * ? *")).build();
 
