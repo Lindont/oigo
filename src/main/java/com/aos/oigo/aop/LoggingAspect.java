@@ -1,8 +1,9 @@
 package com.aos.oigo.aop;
 
+import lombok.extern.slf4j.Slf4j;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
@@ -11,9 +12,9 @@ import org.springframework.stereotype.Component;
  * @Date : Create in 2018-01-10
  */
 @Aspect
+@Slf4j
 @Component
 public class LoggingAspect {
-    private static final Logger log = LoggerFactory.getLogger(LoggingAspect.class);
 
     /**
      * 函数执行前
@@ -78,15 +79,13 @@ public class LoggingAspect {
      * @return
      * @throws Throwable
      */
-    /*
     @Around("execution(* com.aos.oigo.service.Impl.*.*(..))")
     private Object aroundDoLog(ProceedingJoinPoint pjp) throws Throwable {
-        //log.info("Start Method: " + pjp.toString());
+        log.info("Start Method: " + pjp.toString());
         Object value = pjp.proceed();
-        //log.info("Stop Method: " + value);
+        log.info("Stop Method: " + value);
         return value;
     }
-    */
 
     /**
      * 函数执行前后
