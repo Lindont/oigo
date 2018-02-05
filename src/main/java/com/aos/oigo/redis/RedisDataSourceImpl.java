@@ -16,24 +16,23 @@ public class RedisDataSourceImpl implements RedisDataSource {
     private ShardedJedisPool shardedJedisPool;
 
     public ShardedJedis getRedisClient() {
+        ShardedJedis shardJedis = null;
         try {
-            ShardedJedis shardJedis = shardedJedisPool.getResource();
+            shardJedis = shardedJedisPool.getResource();
             return shardJedis;
         } catch (Exception e) {
-            log.error("getRedisClent error", e);
+            log.error("getRedisClent error : " + e.getMessage());
+            if (null != shardJedis)
+                shardJedis.close();
         }
         return null;
     }
 
     public void returnResource(ShardedJedis shardedJedis) {
-        shardedJedisPool.returnResource(shardedJedis);
+        shardedJedis.close();
     }
 
     public void returnResource(ShardedJedis shardedJedis, boolean broken) {
-        if (broken) {
-            shardedJedisPool.returnBrokenResource(shardedJedis);
-        } else {
-            shardedJedisPool.returnResource(shardedJedis);
-        }
+        shardedJedis.close();
     }
 }
