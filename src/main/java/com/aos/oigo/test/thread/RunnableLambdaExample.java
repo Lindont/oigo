@@ -4,7 +4,7 @@ public class RunnableLambdaExample {
     public static void main(String[] args) {
         System.out.println(Thread.currentThread().getName() + ": RunnableTest");
 
-        //Lambda Expression
+        //lambda Expression
         new Thread(() -> {
             for (int i = 0; i < 10000; i++) {
                 System.out.println(Thread.currentThread().getName() + " : " + i);
@@ -38,7 +38,7 @@ public class RunnableLambdaExample {
         });
 
 
-        // Lambda Runnable
+        // lambda Runnable
         Runnable task3 = () -> {
             for (int i = 0; i < 10000; i++) {
                 System.out.println(Thread.currentThread().getName() + " : " + i);
