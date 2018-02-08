@@ -6,4 +6,5 @@ package com.aos.oigo.test.lambda;
  * @Date : Create in 2018-02-07
  */
 public interface Eatable {
+    void taste(int a);
 }
