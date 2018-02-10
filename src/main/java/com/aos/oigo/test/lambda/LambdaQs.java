@@ -12,7 +12,7 @@ public class LambdaQs {
 
     public static void main(String[] args) {
         LambdaQs lq = new LambdaQs();
-        lq.eat((a) ->{
+        lq.eat((a) -> {
             System.out.println(a);
         });
     }
