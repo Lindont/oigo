@@ -2,8 +2,8 @@ package com.aos.oigo.test.ArrayTest;
 
 import org.junit.Test;
 
-import java.lang.reflect.Array;
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
 import java.util.function.IntBinaryOperator;
 import java.util.function.IntUnaryOperator;
 
@@ -162,5 +162,6 @@ public class ArrayTest {
      */
     public void arrayPrint(Object[] object) {
         System.out.println(Arrays.toString(object));
+        System.err.println();
     }
 }
