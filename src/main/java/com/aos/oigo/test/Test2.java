@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -42,5 +43,32 @@ public class Test2 {
         if (CollectionUtils.isEmpty(list)) {
             System.out.println("null");
         }
+    }
+
+    @Test
+    public void test4() {
+        int i = 1;
+        switch (i) {
+            case 1:
+                System.out.println("1");
+                break;
+            case 2:
+                System.out.println("2");
+                break;
+            case 3:
+                System.out.println("3");
+                break;
+            default:
+                System.out.println("0");
+        }
+    }
+
+    @Test
+    public void test5() {
+        Long[] ids = new Long[]{1L,2L,3L,4L,5L,6L};
+
+        Arrays.stream(ids).forEach((i) -> {
+            System.out.println(i);
+        });
     }
 }
