@@ -51,4 +51,17 @@ public class Java8Date
         Instant timestamp = Instant.now();
         System.out.println(timestamp);
     }
+
+    @Test
+    public void timeTest() {
+        System.out.println("================");
+        DateTimeFormatter f = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        //时间转为字符串
+        LocalDateTime date =LocalDateTime.now();
+        //String str = date.format(f);  // 2014-11-07 14:10:36
+        String str = "2018-05-16 00:00:01";
+        //字符串转为时间
+        date = LocalDateTime.parse(str,f);
+        System.out.println(date);
+    }
 }
